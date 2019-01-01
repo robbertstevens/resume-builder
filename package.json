@@ -1,0 +1,18 @@
+{
+  "name": "desktop-resume",
+  "version": "1.0.0",
+  "description": "Create a clean resume",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Robbert Stevens",
+  "dependencies": {
+    "bootstrap": "^4.2.1",
+    "electron": "^4.0.0",
+    "electron-json-storage": "^4.1.5",
+    "electron-store": "^2.0.0",
+    "handlebars": "^4.0.12",
+    "tinymce": "^4.9.2"
+  }
+}

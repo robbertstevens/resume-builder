@@ -1,0 +1,30 @@
+{
+  "sections": [
+    {
+      "title": "Education",
+      "experiences": [
+        {
+          "period": "sept. 2017 - present",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet cupiditate deserunt distinctio illo maxime nulla perferendis quisquam repellat repellendus? Dolorem, laborum, nulla. Dicta eveniet laborum nostrum, placeat qui vel."
+        },
+        {
+          "period": "aug. 2016 - sept. 2017",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet cupiditate deserunt distinctio illo maxime nulla perferendis quisquam repellat repellendus? Dolorem, laborum, nulla. Dicta eveniet laborum nostrum, placeat qui vel."
+        }
+      ]
+    },
+    {
+      "title": "Work",
+      "experiences": [
+        {
+          "period": "sept. 2017 - present",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet cupiditate deserunt distinctio illo maxime nulla perferendis quisquam repellat repellendus? Dolorem, laborum, nulla. Dicta eveniet laborum nostrum, placeat qui vel."
+        },
+        {
+          "period": "sept. 2017 - present",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet cupiditate deserunt distinctio illo maxime nulla perferendis quisquam repellat repellendus? Dolorem, laborum, nulla. Dicta eveniet laborum nostrum, placeat qui vel."
+        }
+      ]
+    }
+  ]
+}
