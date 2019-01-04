@@ -8,10 +8,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <!-- Begin page content -->
-    <div class="container" id="cv">
-
-    </div>
+    <div class="container" id="cv"></div>
 
     <script id="hb-experience-template" type="text/x-handlebars-template">
         <div class="page-header">
@@ -20,12 +17,13 @@
         <div class="lead">
             {{description}}
         </div>
+        <button class="btn btn-primary button-add-section">Add Section</button>
         {{#each cv}}
         <section class="section">
             <div class="section-header">
                 <h2>
                     {{this.title}}
-                    <button type="button" class="btn btn-primary">add</button>
+                    <button type="button" class="btn btn-primary button-add-experience" data-section="{{@index}}">add</button>
                 </h2>
             </div>
 
@@ -33,10 +31,10 @@
                 <div class="row">
                     <div class="col-sm-2">{{this.period}}</div>
                     <div class="col-sm-10 description" contenteditable="true" data-section="{{@../index}}" data-experience="{{@index}}">
-                        {{this.description}}
+                        {{{this.description}}}
                     </div>
                     <div class="pull-right">
-                        <button class="btn btn-danger remove" data-section="{{@../index}}" data-experience="{{@index}}">Remove</button>
+                        <button class="btn btn-danger button-remove-experience" data-section="{{@../index}}" data-experience="{{@index}}">Remove</button>
                     </div>
                 </div>
             {{/each}}

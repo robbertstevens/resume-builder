@@ -24,12 +24,25 @@ ipcRenderer.on("update", (event, resume) => {
         });
     });
 
-    document.querySelectorAll(".remove").forEach(function (element) {
+    document.querySelectorAll(".button-remove-experience").forEach(function (element) {
         element.addEventListener("click", function (e) {
             ipcRenderer.send('experience-remove', {
                 'section': this.dataset.section,
                 'experience': this.dataset.experience
             });
+        });
+    });
+    document.querySelectorAll(".button-add-experience").forEach(function (element) {
+        element.addEventListener("click", function (e) {
+            ipcRenderer.send('experience-add', {
+                'section': this.dataset.section,
+            });
+        });
+    });
+
+    document.querySelectorAll(".button-add-section").forEach(function (element) {
+        element.addEventListener("click", function (e) {
+            ipcRenderer.send('section-add');
         });
     });
 

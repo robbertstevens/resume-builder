@@ -1,28 +1,30 @@
 {
-  "sections": [
+  "title": "Chuojia Mo",
+  "description": "Hello, I am Jiajia",
+  "cv": [
     {
       "title": "Education",
       "experiences": [
         {
           "period": "sept. 2017 - present",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet cupiditate deserunt distinctio illo maxime nulla perferendis quisquam repellat repellendus? Dolorem, laborum, nulla. Dicta eveniet laborum nostrum, placeat qui vel."
+          "description": "Education 1."
         },
         {
-          "period": "aug. 2016 - sept. 2017",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet cupiditate deserunt distinctio illo maxime nulla perferendis quisquam repellat repellendus? Dolorem, laborum, nulla. Dicta eveniet laborum nostrum, placeat qui vel."
+          "period": "aug. 1800 - sept. 2017",
+          "description": "Education 2."
         }
       ]
     },
     {
-      "title": "Work",
+      "title": "Experience",
       "experiences": [
         {
           "period": "sept. 2017 - present",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet cupiditate deserunt distinctio illo maxime nulla perferendis quisquam repellat repellendus? Dolorem, laborum, nulla. Dicta eveniet laborum nostrum, placeat qui vel."
+          "description": "Experience 1."
         },
         {
-          "period": "sept. 2017 - present",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet cupiditate deserunt distinctio illo maxime nulla perferendis quisquam repellat repellendus? Dolorem, laborum, nulla. Dicta eveniet laborum nostrum, placeat qui vel."
+          "period": "aug. 800 - sept. 2017",
+          "description": "Experience 2."
         }
       ]
     }
