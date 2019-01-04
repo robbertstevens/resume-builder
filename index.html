@@ -10,20 +10,21 @@
 <body>
     <!-- Begin page content -->
     <div class="container" id="cv">
-        <div class="page-header">
-            <h1>Resume of Name <Mo></Mo></h1>
-        </div>
-        <p class="lead">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet cupiditate deserunt distinctio illo maxime nulla perferendis quisquam repellat repellendus? Dolorem, laborum, nulla. Dicta eveniet laborum nostrum, placeat qui vel.
-        </p>
-    </div>
-    <div id="test"></div>
-    <script id="hb-experience-template" type="text/x-handlebars-template">
 
+    </div>
+
+    <script id="hb-experience-template" type="text/x-handlebars-template">
+        <div class="page-header">
+            <h1>Resume of {{title}}</h1>
+        </div>
+        <div class="lead">
+            {{description}}
+        </div>
+        {{#each cv}}
         <section class="section">
             <div class="section-header">
                 <h2>
-                    {{title}}
+                    {{this.title}}
                     <button type="button" class="btn btn-primary">add</button>
                 </h2>
             </div>
@@ -31,15 +32,18 @@
             {{#each experiences}}
                 <div class="row">
                     <div class="col-sm-2">{{this.period}}</div>
-                    <div class="col-sm-10 description" contenteditable="true">
+                    <div class="col-sm-10 description" contenteditable="true" data-section="{{@../index}}" data-experience="{{@index}}">
                         {{this.description}}
+                    </div>
+                    <div class="pull-right">
+                        <button class="btn btn-danger remove" data-section="{{@../index}}" data-experience="{{@index}}">Remove</button>
                     </div>
                 </div>
             {{/each}}
         </section>
+        {{/each}}
     </script>
 
-    <script src="node_modules/tinymce/plugins/lists/plugin.min.js"></script>
     <script src="node_modules/tinymce/tinymce.min.js"></script>
     <script src="node_modules/tinymce/themes/inlite/theme.min.js"></script>
     <script src="app.js"></script>
