@@ -76,7 +76,15 @@ class Resume extends Store {
         });
 
         resume.cv = cv;
-        console.log(resume);
+        this.set('resume', resume);
+
+        return this;
+    }
+    removeSection(section) {
+        let resume = this.getResume();
+
+        resume.cv.splice(section, 1);
+
         this.set('resume', resume);
 
         return this;

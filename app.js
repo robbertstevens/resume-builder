@@ -15,7 +15,7 @@ ipcRenderer.on("update", (event, resume) => {
     content.innerHTML = template(resume);
 
     document.querySelectorAll(".description").forEach(function (element) {
-        element.addEventListener("blur", function (e) {
+        element.addEventListener("blur", function() {
             ipcRenderer.send('experience-edit', {
                 'content': this.innerHTML,
                 'section': this.dataset.section,
@@ -25,7 +25,7 @@ ipcRenderer.on("update", (event, resume) => {
     });
 
     document.querySelectorAll(".button-remove-experience").forEach(function (element) {
-        element.addEventListener("click", function (e) {
+        element.addEventListener("click", function() {
             ipcRenderer.send('experience-remove', {
                 'section': this.dataset.section,
                 'experience': this.dataset.experience
@@ -33,7 +33,7 @@ ipcRenderer.on("update", (event, resume) => {
         });
     });
     document.querySelectorAll(".button-add-experience").forEach(function (element) {
-        element.addEventListener("click", function (e) {
+        element.addEventListener("click", function() {
             ipcRenderer.send('experience-add', {
                 'section': this.dataset.section,
             });
@@ -41,8 +41,16 @@ ipcRenderer.on("update", (event, resume) => {
     });
 
     document.querySelectorAll(".button-add-section").forEach(function (element) {
-        element.addEventListener("click", function (e) {
+        element.addEventListener("click", function() {
             ipcRenderer.send('section-add');
+        });
+    });
+
+    document.querySelectorAll(".button-remove-section").forEach(function (element) {
+        element.addEventListener("click", function()  {
+            ipcRenderer.send('section-remove', {
+                'section' : this.dataset.section
+            });
         });
     });
 

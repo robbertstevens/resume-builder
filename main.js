@@ -44,6 +44,10 @@ function main() {
         event.sender.send('update', resume.getResume());
     });
 
+    ipcMain.on('section-remove', (event, args) => {
+        resume.removeSection(args.section);
+        event.sender.send('update', resume.getResume());
+    });
 
     win.on('closed', () => {
         win = null

@@ -4,40 +4,77 @@
     <title>Resume</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">
+    <script src="node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
 </head>
 <body>
-    <div class="container" id="cv"></div>
+    <div class="section" id="cv"></div>
 
     <script id="hb-experience-template" type="text/x-handlebars-template">
-        <div class="page-header">
-            <h1>Resume of {{title}}</h1>
-        </div>
-        <div class="lead">
-            {{description}}
-        </div>
-        <button class="btn btn-primary button-add-section">Add Section</button>
-        {{#each cv}}
-        <section class="section">
-            <div class="section-header">
-                <h2>
-                    {{this.title}}
-                    <button type="button" class="btn btn-primary button-add-experience" data-section="{{@index}}">add</button>
-                </h2>
-            </div>
-
-            {{#each experiences}}
-                <div class="row">
-                    <div class="col-sm-2">{{this.period}}</div>
-                    <div class="col-sm-10 description" contenteditable="true" data-section="{{@../index}}" data-experience="{{@index}}">
-                        {{{this.description}}}
-                    </div>
-                    <div class="pull-right">
-                        <button class="btn btn-danger button-remove-experience" data-section="{{@../index}}" data-experience="{{@index}}">Remove</button>
+        <section class="hero is-light">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">Resume of {{title}}</h1>
+                    <div class="subtitle">
+                        {{{description}}}
+                        <button class="button is-small btn-primary button-add-section">Add Section</button>
                     </div>
                 </div>
-            {{/each}}
+            </div>
+        </section>
+        {{#each cv}}
+        <section class="section">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        <h2>
+                            {{this.title}}
+                        </h2>
+                    </div>
+                    <div class="column is-1 is-pulled-right">
+                        <div class="field is-group has-addons">
+                            <p class="control">
+                                <a type="button" class="button is-inverted is-small is-primary button-add-experience" data-section="{{@index}}">
+                                        <span class="icon">
+                                            <i class="fas fa-plus-circle"></i>
+                                        </span>
+                                </a>
+                            </p>
+                            <p class="control">
+                                <a type="button" class="button is-inverted is-small is-danger button-remove-section" data-section="{{@index}}">
+                                        <span class="icon">
+                                            <i class="fas fa-times-circle"></i>
+                                        </span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {{#each experiences}}
+                <div class="columns">
+                    <div class="column is-one-fifth">{{this.period}}</div>
+                    <div class="column description content" contenteditable="true" data-section="{{@../index}}"
+                         data-experience="{{@index}}">
+                        {{{this.description}}}
+                    </div>
+                    <div class="column is-1 is-pulled-right">
+                        <div class="field is-group has-addons">
+                            <p class="control">
+                                <a type="button" class="button is-inverted is-small is-danger button-remove-experience" data-section="{{@../index}}" data-experience="{{@index}}">
+                                        <span class="icon">
+                                            <i class="fas fa-times-circle"></i>
+                                        </span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <!--<div class="pull-right">-->
+                    <!--<button class="btn btn-danger button-remove-experience" data-section="{{@../index}}" data-experience="{{@index}}">Remove</button>-->
+                    <!--</div>-->
+                </div>
+                {{/each}}
+            </div>
         </section>
         {{/each}}
     </script>
@@ -45,5 +82,5 @@
     <script src="node_modules/tinymce/tinymce.min.js"></script>
     <script src="node_modules/tinymce/themes/inlite/theme.min.js"></script>
     <script src="app.js"></script>
-</body>
+    </body>
 </html>
