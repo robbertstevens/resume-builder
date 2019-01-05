@@ -65,6 +65,15 @@ function main() {
         event.sender.send('update', resume.getResume());
     });
 
+    ipcMain.on('resume-title-edit', (event, args) => {
+        resume.updateTitle(args.content);
+        event.sender.send('update', resume.getResume());
+    });
+
+    ipcMain.on('resume-description-edit', (event, args) => {
+        resume.updateDescription(args.content);
+        event.sender.send('update', resume.getResume());
+    });
     win.on('closed', () => {
         win = null
     });

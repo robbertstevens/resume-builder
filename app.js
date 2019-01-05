@@ -19,6 +19,21 @@ ipcRenderer.on("update", (event, resume) => {
     content.innerHTML = "";
     content.innerHTML = template(resume);
 
+
+    let title = document.getElementById("resume-title"),
+        description = document.getElementById("resume-description");
+
+    title.addEventListener("blur", function() {
+        ipcRenderer.send("resume-title-edit", {
+            "content" : this.innerHTML,
+        });
+    });
+    description.addEventListener("blur", function() {
+        ipcRenderer.send("resume-description-edit", {
+            "content" : this.innerHTML,
+        });
+    });
+
     document.querySelectorAll(".experience-description").forEach(function (element) {
         element.addEventListener("blur", function() {
             ipcRenderer.send('experience-description-edit', {

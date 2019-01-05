@@ -15,7 +15,7 @@ class Resume extends Store {
         return this.get('resume');
     }
 
-    setTitle(title) {
+    updateTitle(title) {
         let resume = this.getResume();
         resume.title = title;
 
@@ -24,7 +24,7 @@ class Resume extends Store {
         return this;
     }
 
-    setDescription(description) {
+    updateDescription(description) {
         let resume = this.getResume();
         resume.description = description;
 

@@ -12,7 +12,7 @@
 
 
     <script id="hb-experience-template" type="text/x-handlebars-template">
-        <div class="columns">
+        <div class="columns is-gapless">
             <div class="column is-one-fifth experience-period" contenteditable="true" data-section="{{@../index}}" data-experience="{{@index}}">
                 {{this.period}}
             </div>
@@ -65,12 +65,14 @@
     </script>
 
     <script id="hb-cv-template" type="text/x-handlebars-template">
-        <section class="hero is-light">
+        <section class="hero">
             <div class="hero-body">
                 <div class="container">
-                    <h1 class="title">Resume of {{title}}</h1>
+                    <h1 class="title"id="resume-title" contenteditable="true">{{title}}</h1>
                     <div class="subtitle">
-                        {{{description}}}
+                        <div id="resume-description" contenteditable="true">
+                            {{{description}}}
+                        </div>
                         <button class="button is-small btn-primary button-add-section">Add Section</button>
                     </div>
                 </div>
