@@ -33,7 +33,7 @@ class Resume extends Store {
         return this;
     }
 
-    addExperienceDescription(section, experience) {
+    addExperience(section) {
         let resume = this.getResume();
         let experiences = resume.cv[section].experiences || [];
 
@@ -57,15 +57,26 @@ class Resume extends Store {
 
         return this;
     }
-    updateExperienceDescription(section, experience, description) {
+
+    updateExperienceDescription(section, experience, content) {
         let resume = this.getResume();
-        resume.cv[section].experiences[experience].description = description;
+
+        resume.cv[section].experiences[experience].description = content;
 
         this.set('resume', resume);
 
         return this;
     }
 
+    updateExperiencePeriod(section, experience, content) {
+        let resume = this.getResume();
+
+        resume.cv[section].experiences[experience].period = content;
+
+        this.set('resume', resume);
+
+        return this;
+    }
     addSection() {
         let resume = this.getResume();
 
@@ -80,6 +91,17 @@ class Resume extends Store {
 
         return this;
     }
+
+    updateSectionTitle(section, content) {
+        let resume = this.getResume();
+
+        resume.cv[section].title = content;
+
+        this.set('resume', resume);
+
+        return this;
+    }
+
     removeSection(section) {
         let resume = this.getResume();
 

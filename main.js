@@ -1,5 +1,6 @@
 'use strict';
-const {app, BrowserWindow, ipcMain} = require('electron');
+const {app, BrowserWindow, ipcMain } = require('electron');
+
 const Resume = require('./Resume');
 
 let win;
@@ -21,7 +22,7 @@ function main() {
         event.sender.send('update', resume.getResume());
     });
 
-    ipcMain.on('experience-edit', (event, args) => {
+    ipcMain.on('experience-description-edit', (event, args) => {
         let section = args.section,
             experience = args.experience;
 
@@ -30,11 +31,26 @@ function main() {
         event.sender.send('update', resume.getResume());
     });
 
-    ipcMain.on('experience-add', (event, args) => {
+    ipcMain.on('experience-period-edit', (event, args) => {
         let section = args.section,
             experience = args.experience;
 
-        resume.addExperienceDescription(section, experience);
+        resume.updateExperiencePeriod(section, experience, args.content);
+
+        event.sender.send('update', resume.getResume());
+    });
+
+    ipcMain.on('section-title-edit', (event, args) => {
+        let section = args.section;
+
+        resume.updateSectionTitle(section, args.content);
+
+        event.sender.send('update', resume.getResume());
+    });
+
+    ipcMain.on('experience-add', (event, args) => {
+        let section = args.section;
+        resume.addExperience(section);
 
         event.sender.send('update', resume.getResume());
     });
@@ -52,6 +68,7 @@ function main() {
     win.on('closed', () => {
         win = null
     });
+
     win.loadFile('index.html');
 
 
@@ -70,6 +87,7 @@ app.on('activate', () => {
         main()
     }
 });
+
 
 
 

@@ -10,7 +10,6 @@
   "dependencies": {
     "bulma": "^0.7.2",
     "electron": "^4.0.0",
-    "electron-json-storage": "^4.1.5",
     "electron-store": "^2.0.0",
     "handlebars": "^4.0.12",
     "tinymce": "^4.9.2"

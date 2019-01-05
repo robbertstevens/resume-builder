@@ -3,7 +3,12 @@
 const handlebars = require('handlebars');
 const { ipcRenderer } = require('electron');
 
-let source = document.getElementById('hb-experience-template').innerHTML;
+handlebars.registerPartial({
+   "experience": document.getElementById("hb-experience-template").innerHTML,
+   "section": document.getElementById("hb-section-template").innerHTML,
+});
+
+let source = document.getElementById('hb-cv-template').innerHTML;
 let template = handlebars.compile(source);
 
 ipcRenderer.send('show');
@@ -14,12 +19,32 @@ ipcRenderer.on("update", (event, resume) => {
     content.innerHTML = "";
     content.innerHTML = template(resume);
 
-    document.querySelectorAll(".description").forEach(function (element) {
+    document.querySelectorAll(".experience-description").forEach(function (element) {
         element.addEventListener("blur", function() {
-            ipcRenderer.send('experience-edit', {
+            ipcRenderer.send('experience-description-edit', {
                 'content': this.innerHTML,
                 'section': this.dataset.section,
                 'experience': this.dataset.experience
+            });
+        });
+    });
+
+    document.querySelectorAll(".experience-period").forEach(function (element) {
+        element.addEventListener("blur", function() {
+            ipcRenderer.send('experience-period-edit', {
+                'content': this.innerHTML,
+                'section': this.dataset.section,
+                'experience': this.dataset.experience
+            });
+        });
+    });
+
+
+    document.querySelectorAll(".section-title").forEach(function (element) {
+        element.addEventListener("blur", function() {
+            ipcRenderer.send('section-title-edit', {
+                'content': this.innerHTML,
+                'section': this.dataset.section,
             });
         });
     });
@@ -55,7 +80,7 @@ ipcRenderer.on("update", (event, resume) => {
     });
 
     tinymce.init({
-        selector: '.description',
+        selector: '.experience-description',
         theme: "inlite",
         inline: true,
         plugins: 'lists',

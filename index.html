@@ -10,7 +10,61 @@
 <body>
     <div class="section" id="cv"></div>
 
+
     <script id="hb-experience-template" type="text/x-handlebars-template">
+        <div class="columns">
+            <div class="column is-one-fifth experience-period" contenteditable="true" data-section="{{@../index}}" data-experience="{{@index}}">
+                {{this.period}}
+            </div>
+            <div class="column experience-description content" contenteditable="true" data-section="{{@../index}}" data-experience="{{@index}}">
+                {{{this.description}}}
+            </div>
+            <div class="column is-1 is-pulled-right">
+                <div class="field is-group has-addons">
+                    <p class="control">
+                        <a type="button" class="button is-inverted is-small is-danger button-remove-experience"
+                           data-section="{{@../index}}" data-experience="{{@index}}">
+                            <span class="icon">
+                                <i class="fas fa-times-circle"></i>
+                            </span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="hb-section-template" type="text/x-handlebars-template">
+        <section class="section">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        <h2 class="section-title" contenteditable="true" data-section="{{@index}}">{{this.title}}</h2>
+                    </div>
+
+                    <div class="column is-1 is-pulled-right">
+                        <div class="field is-group has-addons">
+                            <p class="control">
+                                <a type="button" class="button is-inverted is-small is-primary button-add-experience" data-section="{{@index}}">
+                                    <span class="icon"><i class="fas fa-plus-circle"></i></span>
+                                </a>
+                            </p>
+                            <p class="control">
+                                <a type="button" class="button is-inverted is-small is-danger button-remove-section" data-section="{{@index}}">
+                                    <span class="icon"><i class="fas fa-times-circle"></i></span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+            </div>
+            {{#each experiences}}
+                {{> experience }}
+            {{/each}}
+            </div>
+        </section>
+    </script>
+
+    <script id="hb-cv-template" type="text/x-handlebars-template">
         <section class="hero is-light">
             <div class="hero-body">
                 <div class="container">
@@ -23,64 +77,12 @@
             </div>
         </section>
         {{#each cv}}
-        <section class="section">
-            <div class="container">
-                <div class="columns">
-                    <div class="column">
-                        <h2>
-                            {{this.title}}
-                        </h2>
-                    </div>
-                    <div class="column is-1 is-pulled-right">
-                        <div class="field is-group has-addons">
-                            <p class="control">
-                                <a type="button" class="button is-inverted is-small is-primary button-add-experience" data-section="{{@index}}">
-                                        <span class="icon">
-                                            <i class="fas fa-plus-circle"></i>
-                                        </span>
-                                </a>
-                            </p>
-                            <p class="control">
-                                <a type="button" class="button is-inverted is-small is-danger button-remove-section" data-section="{{@index}}">
-                                        <span class="icon">
-                                            <i class="fas fa-times-circle"></i>
-                                        </span>
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {{#each experiences}}
-                <div class="columns">
-                    <div class="column is-one-fifth">{{this.period}}</div>
-                    <div class="column description content" contenteditable="true" data-section="{{@../index}}"
-                         data-experience="{{@index}}">
-                        {{{this.description}}}
-                    </div>
-                    <div class="column is-1 is-pulled-right">
-                        <div class="field is-group has-addons">
-                            <p class="control">
-                                <a type="button" class="button is-inverted is-small is-danger button-remove-experience" data-section="{{@../index}}" data-experience="{{@index}}">
-                                        <span class="icon">
-                                            <i class="fas fa-times-circle"></i>
-                                        </span>
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                    <!--<div class="pull-right">-->
-                    <!--<button class="btn btn-danger button-remove-experience" data-section="{{@../index}}" data-experience="{{@index}}">Remove</button>-->
-                    <!--</div>-->
-                </div>
-                {{/each}}
-            </div>
-        </section>
+            {{> section}}
         {{/each}}
     </script>
 
     <script src="node_modules/tinymce/tinymce.min.js"></script>
     <script src="node_modules/tinymce/themes/inlite/theme.min.js"></script>
     <script src="app.js"></script>
-    </body>
+</body>
 </html>
